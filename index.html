@@ -1,0 +1,119 @@
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳足跡自動填表系統</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head><body>
+    <div class="app-container">
+        <header>
+            <h1>碳足跡自動填表系統</h1>
+            <div class="stepper">
+                <div class="step-indicator active" data-step="1">1</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="2">2</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="3">3</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="4">4</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="5">5</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="6">6</div>
+            </div>
+        </header>
+
+        <main>
+            <div id="step-1" class="step-content-wrapper active">
+                <div class="step-card">
+                    <h2>步驟 1: 上傳法規與參數文件</h2>
+                    <p>請上傳相關法規、參數、當量等參考文件 (可多選)。</p>
+                    <div class="content-area">
+                        <label for="regulation-files" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i> 選擇文件
+                        </label>
+                        <input type="file" id="regulation-files" multiple class="file-input">
+                        <div id="regulation-files-list" class="file-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-2" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 2: 上傳您的產品文件</h2>
+                    <p>請上傳您的產品相關文件 (例如：BOM表、製程說明)。</p>
+                    <div class="content-area">
+                        <label for="product-files" class="file-upload-label">
+                            <i class="fas fa-file-alt"></i> 選擇文件
+                        </label>
+                        <input type="file" id="product-files" class="file-input">
+                        <div id="product-files-list" class="file-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-3" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 3: 計算必要方程式</h2>
+                    <p>系統將根據您提供的文件進行計算。點擊下方按鈕開始計算。</p>
+                    <div class="content-area">
+                        <button id="compute-button" class="action-button"><i class="fas fa-calculator"></i> 開始計算</button>
+                        <div id="computation-status" class="status-message" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-4" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 4: 上傳碳足跡報表Excel模板</h2>
+                    <p>請上傳用於填寫碳足跡資料的Excel模板。</p>
+                    <div class="content-area">
+                        <label for="excel-template" class="file-upload-label">
+                            <i class="fas fa-file-excel"></i> 選擇Excel模板
+                        </label>
+                        <input type="file" id="excel-template" accept=".xls,.xlsx" class="file-input">
+                        <div id="excel-template-list" class="file-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-5" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 5: 填寫Excel欄位</h2>
+                    <p>系統將自動填寫Excel模板中的相關欄位。點擊下方按鈕開始填寫。</p>
+                     <div class="content-area">
+                        <button id="fill-excel-button" class="action-button"><i class="fas fa-pencil-alt"></i> 開始填寫</button>
+                        <div id="fill-status" class="status-message" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-6" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 6: 審查並匯出下載</h2>
+                    <p>請審查填寫結果，確認無誤後即可匯出下載。</p>
+                    <div class="content-area">
+                        <div id="review-area">
+                            <p>報告預覽或摘要將顯示於此。</p>
+                        </div>
+                        <button id="export-button" class="action-button"><i class="fas fa-download"></i> 匯出報告</button>
+                        <div id="export-status" class="status-message" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="prev-button" class="nav-button" disabled>
+                <i class="fas fa-arrow-left"></i> 上一步
+            </button>
+            <button id="next-button" class="nav-button">
+                下一步 <i class="fas fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
